@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+    <link id="bootstrap-style" href="{{ url_for('static',filename='assets/css/bootstrap.min.css') }}"
+          rel="stylesheet"
+          type="text/css"/>
+    <link href="{{ url_for('static',filename='assets/') }}css/icons.min.css" rel="stylesheet" type="text/css"/>
+    <link id="app-style" href="{{ url_for('static',filename='assets/css/app.min.css') }}"
+          rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/libs/sweetalert2/sweetalert2.min.css') }}">
+    <script src="{{ url_for('static',filename='node_modules/vue-form/dist/vue-form.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='assets/libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='assets/libs/metismenu/metisMenu.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='assets/libs/node-waves/waves.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='node_modules/vue/dist/vue.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='node_modules/axios/dist/axios.min.js') }}"></script>
+    {% block script_link %}
+    {% endblock %}
+    <title>{{ title }}</title>
+</head>
+<body>
+<div id="app">
+    {% block body %}
+    {% endblock %}
+</div>
+<script src="{{ url_for('static',filename='assets/js/app.js') }}"></script>
+
+</body>
+</html>

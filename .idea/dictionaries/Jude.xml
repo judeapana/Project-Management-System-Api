@@ -3,11 +3,16 @@
     <words>
       <w>bapi</w>
       <w>bcrypt</w>
+      <w>cpassword</w>
+      <w>datetimt</w>
       <w>docx</w>
       <w>kycs</w>
       <w>mschema</w>
       <w>ngsapp</w>
+      <w>ngsapps</w>
       <w>proj</w>
+      <w>vuelidate</w>
+      <w>vuetable</w>
       <w>xparser</w>
     </words>
   </dictionary>

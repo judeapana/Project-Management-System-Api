@@ -1,0 +1,31 @@
+{% extends 'app/layout/auth_base.html' %}
+{% set text="Change your email address" %}
+{% block content %}
+    <div v-if="message!==''" class="alert alert-success">[[message]]</div>
+    <a href="{{ url_for('auth.login') }}"> Back To Login</a>
+    <script>
+        new Vue({
+            'el': '#app',
+            data: {
+                message: ''
+            },
+            created() {
+                axios.post("{{ url_for('api.auth_confirm_account',token=token) }}").then(({data}) => {
+                    this.message = data.message
+                }).catch((error) => {
+                    Swal.fire({
+                        position: 'top-end',
+                        title: 'Error!',
+                        type: "error",
+                        text: `${error.response.data.message}`,
+                        showConfirmButton: true,
+                    }).then(() => {
+                        window.location.href = "{{ url_for('auth.login') }}"
+                    })
+                })
+            },
+            methods: {},
+            delimiters: ['[[', ']]']
+        })
+    </script>
+{% endblock %}
