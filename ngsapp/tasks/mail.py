@@ -5,7 +5,7 @@ from ngsapp.ext import rq
 
 
 @rq.job
-def send_mail_rq(message, emails=None, subject='Ngsapp App'):
+def send_mail_rq(message, emails=None, subject='default subject of your mail'):
     try:
         msg = Message()
         msg.subject = subject

@@ -3,9 +3,9 @@ import secrets
 from functools import wraps
 
 from PIL import Image
-from flask import current_app
-from flask_jwt_extended import current_user, get_jwt_identity, get_current_user
-from werkzeug.utils import secure_filename
+from flask import current_app, url_for, flash, abort
+from flask_jwt_extended import current_user, verify_jwt_in_request, jwt_required
+from werkzeug.utils import secure_filename, redirect
 
 
 def img_upload(file_storage, resize=(450, 450), base_dir='protected', allowed=None):
@@ -50,11 +50,34 @@ def roles_required(roles):
     def wrapper(func):
         @wraps(func)
         def decorate(*args, **kwargs):
-            print(get_jwt_identity())
             if not (current_user.role in roles):
                 return {"message": "Unauthorized"}, 401
             return func(*args, **kwargs)
 
         return decorate
+
+    return wrapper
+
+
+def app_roles_required(roles):
+    def wrapper(func):
+        @wraps(func)
+        def decorate(*args, **kwargs):
+            if not (current_user.role in roles):
+                return abort(403)
+            return func(*args, **kwargs)
+        return decorate
+    return wrapper
+
+
+def login_required(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        try:
+            verify_jwt_in_request()
+        except Exception as e:
+            flash('Please login to access this page', 'info')
+            return redirect(url_for('auth.login'))
+        return func(*args, **kwargs)
 
     return wrapper

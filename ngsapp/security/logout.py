@@ -1,4 +1,4 @@
-from flask import current_app, make_response
+from flask import current_app, make_response, jsonify
 from flask_jwt_extended import jwt_required, get_raw_jwt, unset_jwt_cookies
 from flask_restplus import Resource
 
@@ -11,12 +11,12 @@ class Logout(Resource):
     method_decorators = [jwt_required]
 
     def delete(self):
-        resp = {'login': False}
+        resp = jsonify({'login': False})
         unset_jwt_cookies(resp)
         # jti = get_raw_jwt()['jti']
         # redis.set(jti, 'true', current_app.config['JWT_ACCESS_TOKEN_EXPIRES'] * 1.2)
         # return {"msg": "Access token revoked"}, 200
-        return make_response(resp), 200
+        return make_response(resp)
 
 
 @auth.route('/revoke/refresh')

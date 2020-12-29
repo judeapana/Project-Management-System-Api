@@ -16,6 +16,10 @@
       <list>
         <option value="$MODULE_DIR$/ngsapp/app/templates" />
         <option value="$MODULE_DIR$/ngsapp/templates" />
+        <option value="$MODULE_DIR$/ngsapp/app/admin/templates" />
+        <option value="$MODULE_DIR$/ngsapp/app/auth/templates" />
+        <option value="$MODULE_DIR$/ngsapp/app/client/templates" />
+        <option value="$MODULE_DIR$/ngsapp/app/main/templates" />
       </list>
     </option>
   </component>
