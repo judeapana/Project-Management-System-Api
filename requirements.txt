@@ -11,8 +11,8 @@ Flask==1.1.2
 Flask-Bcrypt==0.7.1
 Flask-Cors==3.0.9
 Flask-Humanize==0.3.0
-Flask-JWT==0.3.2
-Flask-JWT-Extended==3.25.0
+Flask-JWT
+Flask-JWT-Extended
 Flask-Mail==0.9.1
 flask-marshmallow==0.14.0
 Flask-Migrate==2.5.3
@@ -37,7 +37,7 @@ passlib==1.7.4
 phonenumbers==8.12.14
 Pillow==8.0.1
 pycparser==2.20
-PyJWT==1.4.2
+PyJWT
 PyMySQL==0.10.1
 pyrsistent==0.17.3
 python-dateutil==2.8.1
