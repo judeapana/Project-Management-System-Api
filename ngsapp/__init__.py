@@ -1,8 +1,10 @@
+from dotenv import load_dotenv
 import datetime
 from uuid import UUID
 
 from flask import Flask
 
+load_dotenv()
 from ngsapp.config import DevelopmentConfig
 from ngsapp.ext import cors, db, pagination, bcrypt, migrate, rq, ma, mail, jwt, redis
 from ngsapp.models import User
@@ -22,11 +24,11 @@ def create_app():
     mail.init_app(app)
     app.register_blueprint(bapi)
     redis.init_app(app)
-    app.register_blueprint(application)
-    app.register_blueprint(main)
-    app.register_blueprint(client)
-    app.register_blueprint(auth)
-    app.register_blueprint(admin)
+    #app.register_blueprint(application)
+    #app.register_blueprint(main)
+    #app.register_blueprint(client)
+    #app.register_blueprint(auth)
+    #app.register_blueprint(admin)
 
     @jwt.user_claims_loader
     def claim(identity):
